@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  cafechi_web_client_01:
+    build:
+      context: .
+      dockerfile: dockerfile_web_client
+    image: cafechi_web_client
+    container_name: cafechi_web_client_01
+    networks:
+      - nginx-proxy
+  cafechi_web_client_02:
+    build:
+      context: .
+      dockerfile: dockerfile_web_client
+    image: cafechi_web_client
+    container_name: cafechi_web_client_02
+    networks:
+      - nginx-proxy
+networks:
+  nginx-proxy:
+    external: true
